@@ -1,0 +1,77 @@
+/* src/app/globals.css */
+
+@import 'highlight.js/styles/atom-one-dark.css';
+@import "tailwindcss";
+
+/* Hapus semua aturan .tiptap ul[data-type="taskList"] dari sini */
+
+/* Checklist editor */
+.checklist-editor {
+  color: #ddd; /* warna teks */
+  font-size: 14px;
+}
+
+.checklist-editor ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist-editor li[data-type="taskItem"] {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+}
+
+.checklist-editor li[data-type="taskItem"] > label {
+  margin-right: 8px;
+}
+
+.checklist-editor li[data-type="taskItem"] input[type="checkbox"] {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #666;
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.checklist-editor li[data-type="taskItem"] input[type="checkbox"]:hover {
+  border-color: #aaa;
+}
+
+.checklist-editor li[data-type="taskItem"] input[type="checkbox"]:checked {
+  background: #7E47B8; /* warna centang sesuai tema */
+  border-color: #7E47B8;
+}
+
+.checklist-editor li[data-type="taskItem"] p {
+  margin: 0;
+  flex: 1;
+  color: #ccc;
+}
+
+li {
+  list-style-type: none;
+}
+
+* Menjadikan setiap item checklist sebagai flex container */
+li[data-type="taskItem"] {
+  display: flex;
+  align-items: flex-start; /* Checkbox sejajar dengan awal teks */
+  gap: 0.5rem; /* Memberi jarak antara checkbox dan teks */
+}
+
+/* Memastikan wrapper konten teks tumbuh mengisi sisa ruang */
+li[data-type="taskItem"] > div {
+  flex: 1; /* Ini penting agar teks bisa 'wrap' dengan benar */
+}
+
+/* * PENTING: Class 'prose' dari Tailwind sering menambahkan margin atas/bawah
+ * pada paragraf. Kita perlu menghapusnya agar sejajar sempurna.
+*/
+li[data-type="taskItem"] p {
+  margin: 0;
+}
